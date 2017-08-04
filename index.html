@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SMValidator表单验证</title>
+    <link rel='shortcut icon' type='image/x-ico' href="http://obkwv73yp.bkt.clouddn.com/huge.png">
+	<link rel="stylesheet" type="text/css" href="common/bootstrap/css/bootstrap.css">
+	<style>
+		#add {
+			margin: 50px;
+		}
+	</style>
+</head>
+<body>
+    <div id="container">
+        <button id="add" class="btn btn-large btn-primary">添加</button>
+        <div class="modal fade" tabindex="-1" role="addDialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">添加服务器</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <ul class="nav nav-pills nav-stacked serverStep">
+                                    <li class="active"><a id="goFirstStep">IP地址配置</a></li>
+                                    <li><a id="goSecondStep">基本信息</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-10" style="border: 1px solid #ccc;padding-top: 20px;">
+                                <form class="wifiserverForm" id="wifiserverForm1st">
+                                    <table id="firstStepTable">
+
+                                    </table>
+                                </form>
+                                <form id="wifiserverForm2nd" action="" onsubmit="return false" role="form" class="wifiserverForm form-horizontal hide">
+                                    <div class="form-group">
+                                        <label class="col-md-2  control-label" for="serverName" data-rule="">服务器名称：</label>
+                                        <div class="col-md-6">
+                                            <input id="serverName" name="serverName" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2  control-label" for="ipAddress" data-rule="">IP地址：</label>
+                                        <div class="col-md-6">
+                                            <input id="ipAddress" name="ipAddress" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2  control-label" for="defaultDomain" data-rule="">默认网域：</label>
+                                        <div class="col-md-6">
+                                            <input id="defaultDomain" name="defaultDomain" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2  control-label" data-rule="">服务列表：</label>
+                                        <div class="col-md-10">
+                                            <ul id="authTree00" class="col-md-4 ztree"></ul>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer ">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary" id="nextStep">下一步</button>
+                    </div>
+                    <div class="modal-footer hide">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary" id="serverSave">完成</button>
+                        <button type="button" class="btn btn-primary" id="prevStep">上一步</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="common/jquery/jquery-1.9.1.min.js"></script>
+    <script src="common/bootstrap/js/bootstrap.min.js"></script>
+    <script src="common/bootstrap-table/js/bootstrap-table.min.js"></script>
+    <script src="common/underscore/underscore-min.js"></script>
+    <script src="common/backbone/backbone-min.js"></script>
+    <script src="common/seajs/sea.js"></script>
+    <script src="js/SMValidator.js"></script>
+    <script src="common/zTree/jquery.ztree.all.min.js"></script>
+    <script>
+        seajs.use("./js/myscript.js", function (login) {
+            var login = new login();
+        })
+    </script>
+</body>
+</html>
