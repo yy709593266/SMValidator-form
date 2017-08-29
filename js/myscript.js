@@ -12,9 +12,11 @@ define([], function(require, exports, module){
             "click #nextStep": "nextStep",
             "click #prevStep": "prevStep",
             "click #goFirstStep": "showFirstStep",
-            "click #goSecondStep": "nextStep"
+            "click #goSecondStep": "nextStep",
+            "keyup #searchWord": "searchWord"       //搜索树结构内容
         },
         initialize: function(){
+            this.willNodeList = [];
             this.initTable();
             this.initForm2nd();
         },
@@ -105,6 +107,7 @@ define([], function(require, exports, module){
             });
         },
         initForm2nd: function () {
+            var that = this;
             new SMValidator('#wifiserverForm2nd', {
                 failCss: '++has-error', // 当前是内联表单（input外有套一层，需要将样式层级提升）
                 passCss: '++has-success',
@@ -114,6 +117,90 @@ define([], function(require, exports, module){
                     defaultDomain: 'required("不能为空")'
                 }
             });
+            //树ztree
+            var setting = {
+                async: {
+                    enable: false
+                },
+                data:{
+                    simpleData:{
+                        enable: true,
+                        idKey: "id",
+                        pIdKey: "pId",
+                        rootPId: 0
+                    }
+                },
+                //是否能够多选
+                check: {
+                    enable: true,
+                    chkStyle: "checkbox",
+                    autoCheckTrigger: true
+                },
+                //搜索高亮
+                view: {
+                    fontCss: that.getFontCss
+                },
+                //点击事件
+                callback: {
+                    onClick: function(event, treeId, treeNode){
+                        console.log(treeNode);
+                    }
+                }
+            };
+            var treeData = [
+                {
+                    name: "主控制中心", 
+                    open: true,  
+                    isParent:true 
+                },
+                {
+                    name: "滨江",
+                    open: true,
+                    id: 1, 
+                    children: [       
+                            {
+                                name: "11111"
+                            },
+                            {
+                                name: "22222"
+                            },
+                            {
+                                name: "2223333"
+                            },
+                            {
+                                name: "2222333",
+                                open: true,
+                                children: [{
+                                    name:"11112222"
+                                }]
+                            }
+                        ]
+                }
+
+                ];
+            that.zTreeObj = $.fn.zTree.init($("#authTree00"), setting, treeData);
+        },
+        searchWord: function(){
+            var that = this;
+            that.updateNodes(that.willNodeList, false);
+            var keyWord = $('#searchWord').val();
+            if(keyWord != "") {
+                //得到匹配项
+                that.willNodeList = that.zTreeObj.getNodesByParamFuzzy("name", keyWord);
+            }else {
+                that.willNodeList = [];
+            }
+            that.updateNodes(that.willNodeList, true);
+        },
+        updateNodes: function(list, highlight){
+            var that = this;
+            for(var i = 0, len = list.length; i < len; i++) {
+                list[i].highlight = highlight;
+                that.zTreeObj.updateNode(list[i]);
+            }
+        },
+        getFontCss: function(treeId, treeNode){
+            return (!!treeNode.highlight) ? {color: "orange"}: {color: "#333"};
         },
         choseDft: function(e){
             var $node = $(e.currentTarget);
