@@ -1,0 +1,272 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?k52eoq');
+  src:  url('fonts/icomoon.eot?k52eoq#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?k52eoq') format('truetype'),
+    url('fonts/icomoon.woff?k52eoq') format('woff'),
+    url('fonts/icomoon.svg?k52eoq#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-xian-abnormal:before {
+  content: "\e946";
+}
+.icon-remove:before {
+  content: "\e942";
+}
+.icon-In:before {
+  content: "\e943";
+}
+.icon-networking:before {
+  content: "\e944";
+}
+.icon-edit:before {
+  content: "\e91a";
+}
+.icon-play:before {
+  content: "\e92e";
+}
+.icon-Plan:before {
+  content: "\e930";
+}
+.icon-Role-management:before {
+  content: "\e945";
+}
+.icon-screenshot:before {
+  content: "\e931";
+}
+.icon-task:before {
+  content: "\e932";
+}
+.icon-quality:before {
+  content: "\e933";
+}
+.icon-time:before {
+  content: "\e934";
+}
+.icon-Stop:before {
+  content: "\e935";
+}
+.icon-random:before {
+  content: "\e936";
+}
+.icon-Sign-out:before {
+  content: "\e937";
+}
+.icon-Property:before {
+  content: "\e938";
+}
+.icon-PropertyA:before {
+  content: "\e939";
+}
+.icon-PropertyB:before {
+  content: "\e93a";
+}
+.icon-password:before {
+  content: "\e93b";
+}
+.icon-Key:before {
+  content: "\e93c";
+}
+.icon-R-carousel:before {
+  content: "\e93d";
+}
+.icon-suspend:before {
+  content: "\e93e";
+}
+.icon-Capture:before {
+  content: "\e93f";
+}
+.icon-Capture-failure:before {
+  content: "\e940";
+}
+.icon-L-Carousel:before {
+  content: "\e941";
+}
+.icon-LOGO:before {
+  content: "\e900";
+}
+.icon-biaoji:before {
+  content: "\e901";
+}
+.icon-Parameter-setting:before {
+  content: "\e902";
+}
+.icon-export:before {
+  content: "\e903";
+}
+.icon-Data-export:before {
+  content: "\e904";
+}
+.icon-Import:before {
+  content: "\e905";
+}
+.icon-address:before {
+  content: "\e906";
+}
+.icon-phone:before {
+  content: "\e907";
+}
+.icon-locatio:before {
+  content: "\e908";
+}
+.icon-delete1:before {
+  content: "\e909";
+}
+.icon-Statement:before {
+  content: "\e90a";
+}
+.icon-back:before {
+  content: "\e90b";
+}
+.icon-remind:before {
+  content: "\e90c";
+}
+.icon-more:before {
+  content: "\e90d";
+}
+.icon-delete2:before {
+  content: "\e90e";
+}
+.icon-delete-label:before {
+  content: "\e90f";
+}
+.icon-guoqi:before {
+  content: "\e910";
+}
+.icon-report-form:before {
+  content: "\e911";
+}
+.icon-kaoqin:before {
+  content: "\e912";
+}
+.icon-Configuration:before {
+  content: "\e913";
+}
+.icon-Platform-access:before {
+  content: "\e914";
+}
+.icon-empty:before {
+  content: "\e915";
+}
+.icon-qingkong:before {
+  content: "\e916";
+}
+.icon-Journal:before {
+  content: "\e917";
+}
+.icon-delete3:before {
+  content: "\e918";
+}
+.icon-search:before {
+  content: "\e919";
+}
+.icon-fengxian:before {
+  content: "\e91b";
+}
+.icon-tiaozhuan:before {
+  content: "\e91c";
+}
+.icon-tingchechang:before {
+  content: "\e91d";
+}
+.icon-Statistical-center:before {
+  content: "\e91e";
+}
+.icon-tuli:before {
+  content: "\e91f";
+}
+.icon-box-Icon:before {
+  content: "\e920";
+}
+.icon-download2:before {
+  content: "\e921";
+}
+.icon-download:before {
+  content: "\e922";
+}
+.icon-new-add:before {
+  content: "\e923";
+}
+.icon-error:before {
+  content: "\e924";
+}
+.icon-yichang:before {
+  content: "\e925";
+}
+.icon-abnormal:before {
+  content: "\e926";
+}
+.icon-application:before {
+  content: "\e927";
+}
+.icon-user:before {
+  content: "\e928";
+}
+.icon-user-management:before {
+  content: "\e929";
+}
+.icon-on-line:before {
+  content: "\e92a";
+}
+.icon-up-down:before {
+  content: "\e92b";
+}
+.icon-add-to:before {
+  content: "\e92c";
+}
+.icon-Warning:before {
+  content: "\e92d";
+}
+.icon-normal:before {
+  content: "\e92f";
+}
+
+
+/*树结构图标样式——START——*/
+.icon_region_ico_open,
+.icon_region_ico_close,
+.icon_region_ico_docu{
+/* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-size: 15px;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+  /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+  margin:0 4px !important;
+  width: initial !important;
+    height: 0 !important;
+    background:none !important;
+}
+.icon_region_ico_open:before,
+.icon_region_ico_close:before,
+.icon_region_ico_docu:before{
+    content: "\e939";
+}
+/*树结构图标样式——END——*/
+
+

@@ -1,3 +1,5 @@
+var clickCount;
+
 define([], function(require, exports, module){
     module.exports = Backbone.View.extend({
         el: "#container",
@@ -13,12 +15,15 @@ define([], function(require, exports, module){
             "click #prevStep": "prevStep",
             "click #goFirstStep": "showFirstStep",
             "click #goSecondStep": "nextStep",
-            "keyup #searchWord": "searchWord"       //搜索树结构内容
+            "keyup #searchWord": "searchWord",       //搜索树结构内容
+            "click .click-up": "clickUp",           //向上搜索
+            "click .click-down": "clickDown"        //向下搜索
         },
         initialize: function(){
             this.willNodeList = [];
             this.initTable();
             this.initForm2nd();
+            this.showAdd();
         },
         showAdd: function(){
             var that = this;
@@ -187,15 +192,51 @@ define([], function(require, exports, module){
             if(keyWord != "") {
                 //得到匹配项
                 that.willNodeList = that.zTreeObj.getNodesByParamFuzzy("name", keyWord);
+                //显示匹配到的项的数目
+                clickCount = 1;
+                $('.number').html(clickCount + '/' + that.willNodeList.length);
             }else {
                 that.willNodeList = [];
+                //显示结果[0/0]
+                $('.number').html(0 + '/' + 0);
             }
             that.updateNodes(that.willNodeList, true);
+        },
+        clickUp: function(){
+            var that = this;
+            //没有搜索结果
+            if(that.willNodeList.length == 0) {
+                alert("没有搜索结果!");
+                return;
+            }else if(clickCount == 1){
+                alert("您已位于第一条记录上!");
+                return;
+            }else {
+                that.zTreeObj.selectNode(that.willNodeList[clickCount], false);
+                clickCount--;
+            }
+            //更换当前所在条数
+            $('.number').html(clickCount + '/' + that.willNodeList.length);
+        },
+        clickDown: function(){
+            var that = this;
+            if(that.willNodeList.length == 0) {
+                alert("没有搜索结果!");
+                return;
+            }else if(that.willNodeList.length == clickCount) {
+                alert("您已位于最后一条记录上!");
+                return;
+            }else {
+                that.zTreeObj.selectNode(that.willNodeList[clickCount], false);
+                clickCount++;
+            }
+            $('.number').html(clickCount + '/' + that.willNodeList.length);
         },
         updateNodes: function(list, highlight){
             var that = this;
             for(var i = 0, len = list.length; i < len; i++) {
                 list[i].highlight = highlight;
+                that.zTreeObj.expandNode(list[i].getParentNode(), true, false, false); //将搜索到的节点的父节点展开  
                 that.zTreeObj.updateNode(list[i]);
             }
         },

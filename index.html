@@ -6,10 +6,36 @@
     <link rel='shortcut icon' type='image/x-ico' href="http://obkwv73yp.bkt.clouddn.com/huge.png">
 	<link rel="stylesheet" type="text/css" href="common/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="common/zTree/metroStyle/metroStyle.css">
+    <link rel="stylesheet" href="common/iconFont/style.css">
 	<style>
 		#add {
 			margin: 50px;
 		}
+        .up-down-number-wrap {
+            position: relative;
+        }
+        .click-up, .click-down {
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .click-up {
+            top: -30px;
+            transform:rotate(180deg);
+            -ms-transform:rotate(180deg); 	/* IE 9 */
+            -moz-transform:rotate(180deg); 	/* Firefox */
+            -webkit-transform:rotate(180deg); /* Safari 和 Chrome */
+            -o-transform:rotate(180deg); 
+        }
+        .click-down {
+            top: -15px;
+        }
+        .number {
+            position: absolute;
+            right: 30px;
+            top: -25px;
+        }
 	</style>
 </head>
 <body>
@@ -60,6 +86,11 @@
                                         <label class="col-md-2  control-label" data-rule="">服务列表：</label>
                                         <div class="col-md-5">
                                             <input id="searchWord" class="form-control" type="text" placeholder="输入你想找到的内容">
+                                            <div class="up-down-number-wrap">
+                                                <a class="click-up icon-up-down"></a>
+                                                <a class="click-down icon-up-down"></a>
+                                                <lebel class="number">[0/0]</lebel>
+                                            </div>
                                             <ul id="authTree00" class="ztree"></ul>
                                         </div>
                                     </div>
@@ -90,8 +121,8 @@
     <script src="js/SMValidator.js"></script>
     <script src="common/zTree/jquery.ztree.all.min.js"></script>
     <script>
-        seajs.use("./js/myscript.js", function (login) {
-            var login = new login();
+        seajs.use("./js/myscript.js", function (module) {
+            var module = new module();
         })
     </script>
 </body>
